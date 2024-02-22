@@ -2,6 +2,24 @@
 @section('title', 'User Page')
 @section('content')
     <div class="container">
+        <form action="{{ url('user') }}" enctype="multipart/form-data">
+            @csrf
+            <div class="d-flex justify-content-evenly">
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                    <input type="text" class="form-control" name="email" id="exampleFormControlInput1" placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="exampleFormControlInput1" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="mt-4 btn btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container">
         <div class="d-flex justify-content-end">
             <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add</button>
         </div>

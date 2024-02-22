@@ -10,7 +10,11 @@ class UserController extends Controller
 {
     public function index(Request $request){
         $filters = $request->all();
-        $users = User::all();
+        $users = User::with([]);
+        if (!empty($filters['email'])){
+            $users = $users->where('email', 'LIKE', '%'.$filters['email'].'%');
+        }
+        $users = $users->get();
         return view('user', compact('users'));
     }
 
